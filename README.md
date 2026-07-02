@@ -27,8 +27,15 @@
 
   ```
   npx quasar dev              # starts the dev server (SPA mode) on http://localhost:8080
-  npx quasar build            # generates a production build in /dist
+  npx quasar build            # generates a production build in /dist/spa
+  npx quasar build -m pwa     # generates a production build in /dist/pwa
   ```
+
+  - **The `iadmin` workspace must always be built/deployed with `-m pwa`** (not the default SPA mode), since it
+    depends on the service worker (push notifications, offline queueing, etc.) that only PWA mode registers.
+    Don't confuse this Quasar CLI build **mode** (`spa`/`pwa`/`ssr`/...) with the app's own workspace **mode**
+    (`iadmin` vs `ipanel`, configured in `@imagina/qsite/_config/master/application/app.js`) — that one is resolved
+    at runtime from the URL path (`/iadmin/...` or `/ipanel/...`), both workspaces are served from the same build.
 
 ## Usage
 
