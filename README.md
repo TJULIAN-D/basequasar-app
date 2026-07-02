@@ -1,10 +1,33 @@
 ## BASE QUASAR  | 1.0.1
 
+## Requirements
+
+  - **Node.js `12.13.0`** (pinned in `.nvmrc`). This project uses Quasar CLI v1 (`@quasar/app` `^1.9.6`) with Webpack 4,
+    which is **not compatible with modern Node versions** (Node >= 17 changed the default OpenSSL provider and breaks
+    the build with errors like `error:0308010C:digital envelope routines::unsupported`). Use [nvm](https://github.com/nvm-sh/nvm)
+    or [fnm](https://github.com/Schniz/fnm) to switch to the right version before installing/running the project:
+
+    ```
+    nvm use    # or: fnm use
+    ```
+
+  - **npm** (bundled with Node 12.13.0, ~v6.x)
+  - No global CLI install is required, `npx quasar ...` uses the local `@quasar/app` dependency
+
 ## Installation
 
   ```
   - git clone https://github.com/imagina/basequasar-app.git
+  - nvm use            # (or fnm use) to switch to the Node version in .nvmrc
   - npm i -f
+  - cp .env-example .env    # then fill in BASE_URL and any other needed values
+  ```
+
+## Running the project
+
+  ```
+  npx quasar dev              # starts the dev server (SPA mode) on http://localhost:8080
+  npx quasar build            # generates a production build in /dist
   ```
 
 ## Usage
