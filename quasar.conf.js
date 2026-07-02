@@ -88,7 +88,9 @@ module.exports = function (ctx) {
     },
     pwa: {
       workboxPluginMode: 'InjectManifest',
-      workboxOptions: {}, // only for NON InjectManifest
+      workboxOptions: {
+        importScripts: ['firebase-messaging-sw.js']
+      }, // only for NON InjectManifest
       manifest: {
         name: 'My APP',
         short_name: 'My APP',
