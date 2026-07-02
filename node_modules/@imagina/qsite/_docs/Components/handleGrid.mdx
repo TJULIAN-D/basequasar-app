@@ -1,0 +1,26 @@
+import {TableTabs} from '@site/src/components/table/table.jsx';
+import {componentHandleGrid} from './schemes/schemeQsite.jsx'
+
+# handleGrid
+This component represents an interface for editing and organizing elements in a draggable
+It uses the draggable component from the vuedraggable library to allow the dragging and rearranging of elements.
+
+## Location
+`@imagina/qsite/_components/v3/handleGrid`
+
+<TableTabs tabsContent={componentHandleGrid} />
+
+## Usage
+
+1. Import the `handle-grid` component and define it within your component:
+
+ ```javascript
+ import handleGrid from '@imagina/qsite/_components/v3/handleGrid'
+ ```
+
+2. Use the `handle-grid` component in your template:
+
+ ```vue
+ <handle-grid v-model="items" order-by="sortOrder" title-field="internalTitle"
+    can-add-new-item ref="handleGrid" @create="showBlocksPanel = true"/>
+ ```

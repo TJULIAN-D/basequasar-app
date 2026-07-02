@@ -1,0 +1,11 @@
+const moduleName = 'ibanners'
+const moduleVersion = 'v1'
+const urlBase = `/${moduleVersion}/${moduleName}`
+
+export default {
+  urlBase : urlBase,
+  version: moduleVersion,
+  positions: `${urlBase}/positions`,
+  banners: `${urlBase}/banners`,
+  orderBanners: `${urlBase}/positions/order-banners`
+}

@@ -1,0 +1,28 @@
+import {TableTabs} from '@site/src/components/table/table.jsx';
+import {componentSync} from './schemes/schemeQsite.jsx'
+
+# masterSynchronizable
+The user interface (UI) component's primary function is to synchronize data in bulk. This is achieved through an entity called `isite__synchronizables`, where enabled synchronizations are listed.
+
+## Prerequisites
+
+Before using the synchronization modal, two conditions must be met:
+
+1. **Synchronization Permissions:** The user must have specific permissions to perform data synchronization. These permissions can be configured by an administrator or a designated role.
+
+2. **Existence of `name` in the Entity:** In the entity, the `name` field must match for the synchronization process to proceed. The `name` value is composed of the module's name, followed by `_sync`, and the entity's name (with the first letter capitalized). For example, if you want to synchronize products, the `name` should be `icommerce_syncProducts`.
+
+## Current Features
+
+So far, the mass data synchronization component offers the following features only:
+
+- **Product Import:** Allows importing product data into the system.
+- **Product Export:** Facilitates the export of product data from the system.
+
+:::warning
+Remember that mass data synchronization is a critical operation and should be performed with caution to prevent data loss or unexpected errors.
+:::
+
+<TableTabs tabsContent={componentSync} />
+
+

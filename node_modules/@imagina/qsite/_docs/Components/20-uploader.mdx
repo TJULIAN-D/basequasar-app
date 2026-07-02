@@ -1,0 +1,17 @@
+import {TableTabs} from '@site/src/components/table/table.jsx';
+import {componentUploader} from './schemes/schemeQsite.jsx'
+
+# uploader
+Pick a file using a selector to upload and use the cropper component to edit image files.
+
+<TableTabs tabsContent={componentUploader} />
+
+## Usage
+
+1. Include the `uploader` component in your template:
+
+   ```jsx
+    import uploader from '@imagina/qsite/_components/master/uploader
+    <!--Uploader-->
+    <uploader v-model="responseValue" :max-files="3"/>
+   ```

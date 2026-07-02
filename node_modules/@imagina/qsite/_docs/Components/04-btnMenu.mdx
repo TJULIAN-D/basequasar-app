@@ -1,0 +1,29 @@
+import {TableTabs} from '@site/src/components/table/table.jsx';
+import {componentBtnMenu} from './schemes/schemeQsite.jsx'
+
+# btnMenu
+Use [q-menu](https://quasar.dev/vue-components/menu) quasar component to load a button with a actions list.
+
+<TableTabs tabsContent={componentBtnMenu} />
+
+## Usage
+
+The `btn-menu` component is already included in [boot-core-components](/docs/VueJs/modules/QSite/QsiteBoot#core-components), so there's no need to import it separately.
+
+```jsx
+  <btn-menu :actions="actions" :action-data="actionData" />
+
+  actions: [
+    {
+      icon: 'fas fa-pen',
+      color: 'green',
+      label: 'Action label',
+      vIf: true,
+      action: (data) => {
+        // Do anything...
+      },
+    },
+  ],
+
+actionData = 5 + 3,
+```

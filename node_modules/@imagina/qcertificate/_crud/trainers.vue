@@ -1,0 +1,106 @@
+<template></template>
+<script>
+//Component
+import crud from '@imagina/qcrud/_components/crud'
+
+export default {
+  data() {
+    return {
+      crudId: this.$uid()
+    }
+  },
+  computed: {
+    crudData() {
+      return {
+        crudId: this.crudId,
+        entityName: config("main.qcertificate.entityNames.trainers"),
+        apiRoute: 'apiRoutes.qcertificate.trainers',
+        permission: 'icertificate.trainers',        
+        create: {
+          title: this.$tr('icertificate.cms.newTrainer'),
+        },
+        read: {
+          columns: [
+            {name: 'id', label: this.$tr('isite.cms.form.id'), field: 'id', style: 'width: 50px'},
+            {name: 'fullName', label: this.$tr('icertificate.cms.form.fullName'), field: 'fullName', align: 'rigth'},
+            {name: 'email', label: this.$tr('isite.cms.form.email'), field: 'email', align: 'rigth'},
+            {
+                name: 'status',
+                label: this.$tr('isite.cms.form.status'),
+                field: 'status',
+                align: 'left'                
+            },            
+            {name: 'position', label: this.$tr('icertificate.cms.form.position'), field: 'position', align: 'left'},
+            {
+              name: 'created_at', label: this.$tr('isite.cms.form.createdAt'), field: 'createdAt', align: 'left',
+              format: val => val ? this.$trd(val) : '-',
+            },
+            {name: 'actions', label: this.$tr('isite.cms.form.actions'), align: 'left'},
+          ],          
+          
+        },
+        update: {
+          title: this.$tr('icertificate.cms.updateTrainer'),          
+        },
+        delete: true,
+        formLeft: {
+          id: {value: ''},
+          userId: {value: this.$store.state.quserAuth.userId},
+          fullName: {
+            value: '',
+            type: 'input',           
+            props: {
+              label: `${this.$tr('isite.cms.form.name')}*`,
+              rules: [
+                val => !!val || this.$tr('isite.cms.message.fieldRequired')
+              ],
+            },
+          },
+          email: {
+            value: null,
+            type: 'input',
+            props : {
+                label: `${this.$tr('isite.cms.form.email')}*`,
+                rules: [
+                    val => !!val || this.$tr('isite.cms.message.fieldRequired'),
+                    val => this.$helper.validateEmail(val) || this.$tr('isite.cms.message.fieldEmail')
+                ],
+            }            
+       	 	},       
+          position: {
+            value: null,
+            type: 'input',
+            props: {
+              label: `${this.$tr('icertificate.cms.form.position')}*`,
+              rules: [
+                val => !!val || this.$tr('isite.cms.message.fieldRequired')
+              ],
+            }
+          },
+          status: {
+                value: '1',
+                type: 'select',
+                isTranslatable: false,
+                props: {
+                label: `${this.$tr('isite.cms.form.status')}*`,
+                options: [
+                    {label: this.$tr('isite.cms.label.enabled'), value: '1'},
+                    {label: this.$tr('isite.cms.label.disabled'), value: '0'}
+                ],
+                rules: [
+                    val => !!val || this.$tr('isite.cms.message.fieldRequired')
+                ],
+                }
+          },
+					  
+        },
+        formRight: {},
+      }
+    },
+    //Crud info
+    crudInfo() {
+      return this.$store.state.qcrudComponent.component[this.crudId] || {}
+    }
+  },
+}
+</script>

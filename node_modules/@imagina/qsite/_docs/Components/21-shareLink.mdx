@@ -1,0 +1,22 @@
+import {TableTabs} from '@site/src/components/table/table.jsx';
+import {componentShareLink} from './schemes/schemeQsite.jsx'
+
+# share-link
+Render a `<q-dialog>` with buttons to copy the content and share the link on social media.
+
+<TableTabs tabsContent={componentShareLink} />
+
+## Usage
+
+1. The `share-link` component is already included in [`boot-core-components`](/docs/VueJs/modules/QSite/QsiteBoot#core-components) and does not need to be imported to use.
+
+2. Use the `share-link` component in your template:
+
+```jsx
+<!--Share link-->
+ <share-link
+    url="https://example.com/forms/index/"
+    embed="<script src='https://example.com/forms/index/'></script>"
+/>
+
+    ```

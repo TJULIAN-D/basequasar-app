@@ -1,0 +1,50 @@
+import {TableTabs} from '@site/src/components/table/table.jsx';
+import {componentLocale} from './schemes/schemeQsite.jsx'
+
+# locale
+Show images as a preview and full image in a modal.
+
+<TableTabs tabsContent={componentLocale} />
+
+## Usage
+
+1. Import the `locale` component and define it within your component:
+
+ ```js
+ import locale from '@imagina/qsite/_components/master/locale'
+    ```
+
+2. Use the `locale` component within a `q-form` element. Make sure to set a reference to the form element using the `ref` attribute:
+
+ ```jsx
+ <q-form ref="formContent">
+   <!--Locale-->
+   <locales v-model="locale" ref="localeComponent" :form="$refs.formContent"/>
+ </q-form>
+    ```
+
+3. Configure the `locale` object to define the form structure:
+
+ ```javascript
+ // Locale configuration
+ locale = {
+   form: {},
+   fields: {
+     userId: this.$store.state.quserAuth.userId,
+     countryId: null,
+     provinceId: null,
+     cityId: null,
+     status: '2',
+     checked: null,
+     featured: null,
+     lat: null,
+     lng: null,
+     map: null
+   },
+   fieldsTranslatable: {
+     title: null,
+     slug: null,
+     description: null,
+   }
+ };
+    ```

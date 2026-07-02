@@ -1,0 +1,15 @@
+const moduleName = 'icertificate';
+const moduleVersion = 'v1';
+const urlBase = `/${moduleName}/${moduleVersion}`
+
+
+export default {
+  urlBase: urlBase,
+  version: moduleVersion, 
+  customers: `${urlBase}/customers`,
+  companies: `${urlBase}/companies`,
+  trainingTypes: `${urlBase}/trainingtypes`,
+  trainers: `${urlBase}/trainers`,
+  courses: `${urlBase}/courses`,
+  certificates: `${urlBase}/certificates`,  
+}

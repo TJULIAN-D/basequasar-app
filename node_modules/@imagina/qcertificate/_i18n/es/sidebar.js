@@ -1,0 +1,4 @@
+export default {
+  //Iadmin translations
+  adminGroup: 'Clientes',  
+}

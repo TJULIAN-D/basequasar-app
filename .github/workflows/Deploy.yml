@@ -1,0 +1,73 @@
+name: Deploy CMS
+
+on: workflow_dispatch
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          repository: imagina/basequasar-app
+          token:  ${{ secrets.DEPLOY_ADMIN_THEME }}
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install Quasar CLI
+        run: npm install -g @quasar/cli@1.3.2
+
+      - name: Install npm Dependencies
+        run: npm install
+
+      - name: Remove @imagina folder
+        run: rm -rf node_modules/@imagina
+
+      - name: Initialize submodules
+        run: git submodule update --init --remote
+
+      - name: Github Credentials
+        run: |
+          git config --global user.name "Imagina Actions Bot"
+          git config --global user.email "carlosdevia@imaginacolombia.com"
+          git config --global url."https://${{ secrets.DEPLOY_ADMIN_THEME }}@github.com/".insteadOf "https://github.com/"
+      - name: Set Branch to push deploy
+        id: set_branch
+        run: |
+          branch=$(git rev-parse --abbrev-ref HEAD)
+          echo "current_branch=v2.x" >> "$GITHUB_ENV"
+          # Set branch_deploy to the current branch name
+          echo "branch_deploy=v8.x" >> "$GITHUB_ENV"
+      - name: Update Version
+        run: |
+          git fetch --no-recurse-submodules
+          git submodule foreach --recursive git fetch
+          git checkout $current_branch
+          git merge --allow-unrelated-histories origin/$current_branch
+          git submodule foreach --recursive git checkout $current_branch
+          #git submodule foreach --recursive git merge --allow-unrelated-histories origin/$current_branch
+          git add .
+          git commit -m "Realease" || true
+          npm version patch
+          git push origin $current_branch
+      - name: Build as PWA
+        run: quasar build -m pwa
+
+      - name: Rename folder pwa as iadmin
+        run: mv dist/pwa iadmin
+
+      - name: Remove old iadmin and publish iadmin folder in repository
+        run: |
+          git clone https://github.com/imagina/imaginacmsadmin-theme.git tmp_repo
+          cd tmp_repo
+          git checkout $branch_deploy
+          rm -rf iadmin
+          cp -r ../iadmin ./iadmin
+          git add .
+          git commit -m "+Release: Iadmin"
+          git push origin $branch_deploy
+        env:
+          GITHUB_TOKEN: ${{ secrets.DEPLOY_ADMIN_THEME }}

@@ -1,0 +1,23 @@
+import {TableTabs} from '@site/src/components/table/table.jsx';
+import {componentMasterModal} from './schemes/schemeQsite.jsx'
+
+# masterModal
+Uses the [`q-dialog`](https://quasar.dev/vue-components/dialog) component to maintain a standard modal UI in the project. Only the content changes.
+
+<TableTabs tabsContent={componentMasterModal} />
+
+## Events
+
+Emit all `q-dialog` events.
+
+## Usage
+
+The `master-modal` component is already included in [`boot-core-components`](/docs/VueJs/modules/QSite/QsiteBoot#core-components) and does not need to be imported to use.
+
+1. Use the `master-modal` component in your template:
+
+   ```jsx
+   <master-modal v-model="modal.show" v-bind="propsModal">
+     <!-- HTML Structure... -->
+   </master-modal>
+   ```

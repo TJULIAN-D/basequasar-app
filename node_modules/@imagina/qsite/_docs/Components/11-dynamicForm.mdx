@@ -1,0 +1,18 @@
+import {TableTabs} from '@site/src/components/table/table.jsx';
+import {componentDynamicForm} from './schemes/schemeQsite.jsx'
+
+# dynamicForm
+Render a form per blocks using the [q-stepper](https://quasar.dev/vue-components/stepper) component.
+
+<TableTabs tabsContent={componentDynamicForm} />
+
+## Usage
+
+1. The `dynamic-form` component is already included in [`boot-core-components`](/docs/VueJs/modules/QSite/QsiteBoot#core-components) and does not need to be imported to use.
+
+2. Use the `dynamic-form` component in your template:
+
+```jsx
+<!--Dynamic form-->
+<dynamic-form v-model="form" :form-id="8" />
+    ```

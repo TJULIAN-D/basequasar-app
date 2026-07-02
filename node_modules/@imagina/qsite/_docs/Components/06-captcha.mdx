@@ -1,0 +1,17 @@
+import {TableTabs} from '@site/src/components/table/table.jsx';
+import {componentCaptcha} from './schemes/schemeQsite.jsx'
+
+# Captcha
+Load [google-recaptcha](https://www.google.com/recaptcha/about/) if API key are defined on project settings
+
+<TableTabs tabsContent={componentCaptcha} />
+
+## Usage
+
+Import the `captcha` component and define it within your component:
+
+```jsx
+import captcha from '@qsite/_components/master/captcha'
+
+<captcha />
+```

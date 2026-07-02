@@ -1,0 +1,191 @@
+.q-calendar-resource
+  display: flex
+  flex: 1
+  flex-wrap: nowrap
+  flex-direction: column
+  height: 100%
+  width: 100%
+
+  &__body
+    flex: 1 1 60%
+    overflow: hidden
+    display: flex
+    position: relative
+    flex-direction: column
+
+  &__scroll-area
+    overflow: auto
+    flex: 1 1 auto
+    display: flex
+    align-items: flex-start
+
+  &__day-container
+    position: relative
+    display: flex
+    flex: 1
+    flex-wrap: nowrap
+    flex-direction: column
+
+  &__head
+    display: flex
+    flex-direction: row
+    flex: 1
+    position: relative
+    font-size: 10px
+
+  &__resource-head
+    display: flex
+    flex-direction: row
+    flex: 1
+    position: relative
+    font-size: 10px
+    padding: 2px
+
+  &__head-intervals
+    display: flex
+    flex-direction: row
+
+  &__head-label
+    display: flex
+    justify-content: center
+    align-items: center
+    position: relative
+    font-size: 10px
+    padding: 2px
+    user-select: none
+
+  &__resources-body
+    display: flex
+    position: relative
+    flex-direction: column
+    flex-wrap: wrap
+
+  &__resource-row
+    display: flex
+    position: relative
+    flex-direction: row
+    flex-wrap: nowrap
+    flex: 1
+
+  &__resource
+    display: flex
+    flex-wrap: nowrap
+    flex: 1
+    user-select: none
+    padding: 4px
+    font-size: 1rem
+    overflow: hidden
+
+  &__resource-text
+    display: flex
+    position: relative
+    font-size: 12px
+    align-items: center
+    flex-wrap: wrap
+
+  &__resource-intervals
+    display: flex
+    position: relative
+
+// sticky
+.q-calendar-resource__head.q-calendar__sticky
+  position: sticky
+  left: 0
+  top: 0
+  z-index: 2
+
+.q-calendar-resource__resource-head.q-calendar__sticky
+  position: sticky
+  left: 0
+  top: 0
+  z-index: 3
+
+.q-calendar-resource__resource.q-calendar__sticky
+  position: sticky
+  left: 0
+  z-index: 1
+
+.q-calendar-resource
+
+  &__head
+    color: var(--calendar-color)
+    background: var(--calendar-background)
+
+  &__resource-head
+    border-right: var(--calendar-border)
+    border-bottom: var(--calendar-border)
+    color: var(--calendar-color)
+    background: var(--calendar-background)
+
+    &:last-child
+      border-right: none
+
+  &__head-label
+    border-right: var(--calendar-border)
+    border-bottom: var(--calendar-border)
+
+    &:last-child
+      border-right: none
+
+  &__resource
+    border-bottom: var(--calendar-border)
+    border-right: var(--calendar-border)
+    color: var(--calendar-color)
+    background: var(--calendar-background)
+
+    &--droppable
+      border: var(--calendar-border-droppable)
+
+  &__resource-interval
+    border-bottom: var(--calendar-border)
+    border-right: var(--calendar-border)
+
+    &:last-child
+      border-right: none
+
+    &--droppable
+      border: var(--calendar-border-droppable)
+
+.q-calendar-resource__resource-row:last-child > .q-calendar-resource__resource
+  border-bottom: none
+
+.q-calendar-resource__resource-row:last-child > .q-calendar-resource__resource-intervals > .q-calendar-resource__resource-interval
+  border-bottom: none
+
+.q-dark div,
+.body--dark div,
+.q-calendar--dark
+  .q-calendar-resource
+
+    &__head
+      color: var(--calendar-color-dark)
+      background: var(--calendar-background-dark)
+
+    &__body
+      border-top: var(--calendar-border-dark)
+
+    &__resource-head
+      border-right: var(--calendar-border-dark)
+      border-bottom: var(--calendar-border-dark)
+      color: var(--calendar-color-dark)
+      background: var(--calendar-background-dark)
+
+    &__head-label
+      border-right: var(--calendar-border-dark)
+      border-bottom: var(--calendar-border-dark)
+
+      &--droppable
+        border: var(--calendar-border-droppable-dark)
+
+    &__resource
+      border-bottom: var(--calendar-border-dark)
+      border-right: var(--calendar-border-dark)
+      color: var(--calendar-color-dark)
+      background: var(--calendar-background-dark)
+
+      &--droppable
+        border: var(--calendar-border-droppable-dark)
+
+    &__resource-interval
+      border-bottom: var(--calendar-border-dark)
+      border-right: var(--calendar-border-dark)

@@ -1,0 +1,53 @@
+.notification-notification-icon-big {
+  border-radius: 8px;
+  width: 64px;
+  height: 64px;
+  border: 2px;
+  border-style: solid;
+}
+
+.notification-notification-icon {
+  border-radius: 8px;
+  width: 48px;
+  height: 48px;
+  border: 2px;
+  border-style: solid;
+}
+
+.notification-notification-icon-small {
+  border-radius: 8px;
+  width: 36px;
+  height: 36px;
+  border: 2px;
+  border-style: solid;
+}
+
+.notification-notification-image {
+  height: 320px;      
+  width: 100%;
+  border-radius: 16px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.notification-mark-as-read {
+  color: rgb(117, 117, 117);
+  border: 1px solid rgba(0, 13, 71, 0);
+}
+
+.notification-mark-as-read:hover {
+  color: rgba(0, 0, 0, 0.8);
+  border: 1px solid rgba(0, 13, 71, 0.15);
+}
+
+.notification-unread {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  align-content: flex-end;
+  justify-content: space-between;
+  align-items: flex-end;
+  height: 100%;
+  padding-bottom: 4px
+}

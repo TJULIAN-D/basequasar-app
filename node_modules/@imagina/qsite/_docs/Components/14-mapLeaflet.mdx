@@ -1,0 +1,19 @@
+import {TableTabs} from '@site/src/components/table/table.jsx';
+import {componentMapLeaflet} from './schemes/schemeQsite.jsx'
+
+# mapLeaflet
+Implement [`vue2-leaflet`](https://vue2-leaflet.netlify.app/)
+
+<TableTabs tabsContent={componentMapLeaflet} />
+
+## Usage
+
+1. Import and define the `mapLeaflet` component in your component:
+
+ ```js
+ import mapLeaflet from '@imagina/qsite/_components/master/mapLeaflet'
+    ```
+2. Use the `mapLeaflet` component:
+ ```jsx
+ <map-leaflet v-model="responseValue" />
+    ```

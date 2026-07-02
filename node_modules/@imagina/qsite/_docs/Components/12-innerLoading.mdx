@@ -1,0 +1,20 @@
+import {TableTabs} from '@site/src/components/table/table.jsx';
+import {componentInnerLoading} from './schemes/schemeQsite.jsx'
+
+# innerLoading
+Show images as a preview and full image in a modal.
+
+<TableTabs tabsContent={componentInnerLoading} />
+
+## Usage
+
+1. The `inner-loading` component is already included in [`boot-core-components`](/docs/VueJs/modules/QSite/QsiteBoot#core-components) and does not need to be imported to use.
+
+2. Use the `inner-loading` component in your template by placing it inside a `div` with the class `relative-position`:
+
+```jsx
+<!--Inner loading-->
+<div class="relative-position">
+  <inner-loading :visible="true" />
+</div>
+   ```

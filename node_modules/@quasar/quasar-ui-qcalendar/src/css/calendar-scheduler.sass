@@ -1,0 +1,292 @@
+.q-calendar-scheduler
+  display: flex
+  flex: 1
+  flex-wrap: nowrap
+  flex-direction: column
+  height: 100%
+  width: 100%
+
+  &__head
+    display: flex
+    flex-direction: row
+    position: relative
+    font-size: 10px
+
+  &__resource-head
+    flex: none
+    display: flex
+    overflow: hidden
+    vertical-align: bottom
+
+    &--text
+      display: block
+      position: relative
+      font-size: 10px
+      text-align: center
+      vertical-align: bottom
+
+  &__head-days-body
+    position: relative
+    display: flex
+    flex-direction: row
+    flex: 10000 1 0%
+    user-select: none
+
+  &__head-day
+    flex: 1 1 auto
+    flex-wrap: nowrap
+    overflow: hidden
+    width: 0
+
+  &__head-weekday
+    display: flex
+    flex-wrap: nowrap
+    flex: 1
+    user-select: none
+    padding: 4px
+    font-size: 1rem
+    justify-content: left
+
+  &__head-day-label
+    user-select: none
+    cursor: pointer
+    left: 2px
+    bottom: 2px
+
+  &__column-header__before
+    display: flex
+    flex-wrap: nowrap
+    flex: 1
+    user-select: none
+    padding: 4px
+    font-size: 1rem
+    justify-content: left
+
+  &__column-header__after
+    display: flex
+    flex-wrap: nowrap
+    flex: 1
+    user-select: none
+    padding: 4px
+    font-size: 1rem
+    justify-content: left
+
+  &__body
+    flex: 1 1 60%
+    overflow: hidden
+    display: flex
+    position: relative
+    flex-direction: column
+
+  &__scroll-area
+    overflow: auto
+    flex: 1 1 auto
+    display: flex
+    align-items: flex-start
+
+  &__pane
+    width: 100%
+    overflow-y: hidden
+    flex: none
+    display: flex
+    align-items: flex-start
+
+  &__day-container
+    position: relative
+    display: flex
+    flex-direction: column
+    flex: 1
+
+  &__resource-row
+    position: relative
+    display: flex
+    flex-wrap: nowrap
+    position: relative
+    flex: 10000 1 0%
+
+  &__resources-body
+    position: relative
+    display: flex
+    flex-wrap: nowrap
+    position: relative
+    flex: 10000 1 0%
+    user-select: none
+
+  &__resource
+    display: flex
+    flex: 1
+    user-select: none
+    padding: 4px
+    font-size: 1rem
+    justify-content: left
+    overflow: hidden
+    align-items: center
+    flex-wrap: wrap
+
+  &__resource-text
+    display: flex
+    position: relative
+    font-size: 12px
+    align-items: center
+    flex-wrap: wrap
+
+  &__day
+    flex: 1
+    width: 0
+    position: relative
+
+  &__day-resource
+    height: 100%
+
+// sticky
+.q-calendar-scheduler__head.q-calendar__sticky
+  position: sticky
+  left: 0
+  top: 0
+  z-index: 2
+
+.q-calendar-scheduler__resource-head.q-calendar__sticky
+  position: sticky
+  left: 0
+  top: 0
+  z-index: 3
+
+.q-calendar-scheduler__resource.q-calendar__sticky
+  position: sticky
+  left: 0
+  z-index: 1
+
+
+.q-calendar-scheduler
+
+  &__head
+    color: var(--calendar-color)
+    background: var(--calendar-background)
+    border-bottom: var(--calendar-border)
+
+
+  &__resource-head
+    border-right: var(--calendar-border)
+    color: var(--calendar-color)
+    background: var(--calendar-background)
+
+  &__column-header--before
+    border-bottom: var(--calendar-border)
+
+  &__column-header--after
+    border-top: var(--calendar-border)
+
+  &__head-day
+    font-weight: var(--calendar-head-font-weight)
+    border-right: var(--calendar-border)
+
+    &:last-child
+      border-right: none
+
+    &.q-disabled-day
+      color: var(--calendar-disabled-date-color)
+      background: var(--calendar-disabled-date-background) !important
+
+    &.q-active-date
+      .q-btn
+        color: var(--calendar-active-date-color)
+
+      .q-btn__wrapper:before
+        background: var(--calendar-active-date-background)
+
+    &.q-current-day
+      color: var(--calendar-current-date-color)
+
+      .q-btn__wrapper:before
+        border: var(--calendar-border-current)
+
+  &__resource-row
+    border-bottom: var(--calendar-border)
+
+    &:first-child
+      border-top: none !important
+
+    &:last-child
+      border-bottom: none
+
+  &__resource
+    border-right: var(--calendar-border)
+    color: var(--calendar-color)
+    background: var(--calendar-background)
+
+  &__day
+    border-right: var(--calendar-border)
+
+    &:last-child
+      border-right: none !important
+
+    &.q-disabled-day
+      color: var(--calendar-disabled-date-color)
+      background: var(--calendar-disabled-date-background) !important
+
+  &__day-resource--droppable
+    border: var(--calendar-border-droppable)
+
+
+.q-dark div,
+.body--dark div,
+.q-calendar--dark
+
+  .q-calendar-scheduler
+
+    &__head
+      color: var(--calendar-color-dark)
+      background: var(--calendar-background-dark)
+      border-bottom: var(--calendar-border-dark)
+
+    &__resource-head
+      border-right: var(--calendar-border-dark)
+      color: var(--calendar-color-dark)
+      background: var(--calendar-background-dark)
+
+    &__column-header--before
+      border-bottom: var(--calendar-border-dark)
+
+    &__column-header--after
+      border-top: var(--calendar-border-dark)
+
+    &__head-day
+      border-right: var(--calendar-border-dark)
+
+      &.q-disabled-day
+        color: var(--calendar-disabled-date-color-dark)
+        background: var(--calendar-disabled-date-background-dark) !important
+
+      &.q-active-date
+        .q-btn
+          color: var(--calendar-active-date-color-dark)
+
+        .q-btn__wrapper:before
+          background: var(--calendar-active-date-background-dark)
+
+      &.q-current-day
+        color: var(--calendar-current-date-color-dark)
+
+        .q-btn__wrapper:before
+          border: var(--calendar-border-current-dark)
+
+    &__resource-row
+      border-bottom: var(--calendar-border-dark)
+
+    &__resource
+      border-right: var(--calendar-border-dark)
+      color: var(--calendar-color-dark)
+      background: var(--calendar-background-dark)
+
+    &__day
+      border-right: var(--calendar-border-dark)
+
+      &.q-disabled-day
+        color: var(--calendar-disabled-date-color-dark)
+        background: var(--calendar-disabled-date-background-dark) !important
+
+    &__resource
+      border-right: var(--calendar-border-dark)
+
+    &__day-resource--droppable
+      border: var(--ccalendar-border-droppable-dark)

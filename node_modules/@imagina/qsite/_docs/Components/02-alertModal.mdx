@@ -1,0 +1,42 @@
+import {TableTabs} from '@site/src/components/table/table.jsx';
+import {componentAletModal} from './schemes/schemeQsite.jsx'
+
+# alertModal
+Open a modal to work as alert with optional actions. This component is used by [`plugin-alert`](/docs/VueJs/modules/QSite/QsitePlugins#alert).
+
+<TableTabs tabsContent={componentAletModal} />
+
+## Usage
+
+1. Import and define the `alert-modal` component in your component:
+
+```javascript
+import alertModal from '@qsite/_components/master/alertModal'
+  ```
+2. Use the `alert-modal` component and provide the params prop with the configuration object:
+
+  ```vue
+  <!-- Alert Modal -->
+  <alert-modal :params="componentParams" />
+  ```
+3. Configure the `componentParams` object with the desired alert information and actions:
+
+  ```js
+  componentParams = {
+    icon: 'fas fa-cloud-download-alt',
+    title: 'Title..',
+    message: 'message..', // Load as HTML
+    actions: [
+      {
+        label: 'Ok',
+        icon: '',
+        color: 'white',
+        toUrl: 'https://external-url.com', // Open external URL
+        toVueRoute: { name: 'app.home' }, // Redirect to Vue route
+        handler: () => {
+          // Custom action handler
+        },
+      },
+    ],
+  };
+  ```

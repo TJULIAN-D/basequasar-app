@@ -1,0 +1,12 @@
+export default {
+  moduleName: 'icertificate',
+  //Entities
+  entityNames: {
+    customers: `customers`,
+    companies: `companies`,
+    trainingTypes: `trainingtypes`,
+    trainers: `trainers`,
+    courses: `courses`,
+    certificates: `certificates`,  
+  },
+}
