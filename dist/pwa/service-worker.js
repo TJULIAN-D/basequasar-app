@@ -1,4 +1,4 @@
-importScripts("firebase-messaging-sw.js", "precache-manifest.a589bd829e4f5e7baf40fc1ccf428527.js", "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
+importScripts("firebase-messaging-sw.js", "precache-manifest.461c503d3be619ac93380806db619dfd.js", "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 /*
  * This file (which will be your service worker)
